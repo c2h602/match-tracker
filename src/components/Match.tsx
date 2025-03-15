@@ -1,0 +1,48 @@
+import role from "../assets/illustrations_role.png";
+import arrowDown from "../assets/arrow_down.png";
+import Card from "./Card";
+import { useState } from "react";
+import Status from "./Status";
+
+export default function Match({ match }) {
+  const [show, setShow] = useState(false);
+
+  function openCard() {
+    setShow(!show);
+  }
+
+  return (
+    <div className="match__container">
+      <div className="match-card-wrapper">
+        <div className="match-wrapper">
+          <div className="team-1">
+            <img src={role} />
+            <span>{match.homeTeam.name}</span>
+          </div>
+
+          <div className="score-and-status">
+            <div className="score">
+              <span>
+                {match.homeScore} : {match.awayScore}
+              </span>
+            </div>
+
+            <Status status={match.status} />
+          </div>
+
+          <div className="team-2">
+            <img src={role} />
+            <span>{match.awayTeam.name}</span>
+          </div>
+        </div>
+
+        <button className="arrowDownBtn" onClick={openCard}>
+          <img src={arrowDown} />
+        </button>
+      
+
+      <div>{show && <Card match={match} />}</div>
+      </div>
+    </div>
+  );
+}
