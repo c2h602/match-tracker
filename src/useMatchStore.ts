@@ -34,11 +34,14 @@ interface MatchStore {
   matches: Match[];
   error: boolean;
   fetchMatches: () => Promise<void>;
+  filter: string;
+  setFilter: (filter: string) => void;
 }
   
   export const useMatchStore = create<MatchStore>((set) => ({
     matches: [],
     error: false,
+    filter: '',
   
     fetchMatches: async () => {
       try {
@@ -53,4 +56,6 @@ interface MatchStore {
         set({ error: true });
       }
     },
+
+    setFilter: (filter) => set({filter})
   }));
