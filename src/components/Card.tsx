@@ -1,6 +1,11 @@
 import avatar from "../assets/avatar_global.png";
+import { Match } from "../useMatchStore";
 
-export default function Card({ match }) {
+interface CardProps {
+  match: Match;
+}
+
+export default function Card({ match }: CardProps) {
   const homeTeamPlayers = [...match.homeTeam.players];
   const awayTeamPlayers = [...match.awayTeam.players];
 

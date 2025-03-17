@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 
-interface Player {
+export interface Player {
   username: string;
   kills: number;
 }
   
-interface Team {
+export interface Team {
   name: string;
   players: Player[];
   points: number;
@@ -13,7 +13,7 @@ interface Team {
   total_kills: number;
 }
   
-interface Match {
+export interface Match {
   time: string;
   title: string;
   homeTeam: Team;
@@ -23,14 +23,14 @@ interface Match {
   status: 'Scheduled' | 'Ongoing' | 'Finished';
 }
   
-interface ApiResponse {
+export interface ApiResponse {
   ok: boolean;
   data: {
   matches: Match[];
   };
 }
   
-interface MatchStore {
+export interface MatchStore {
   matches: Match[];
   error: boolean;
   fetchMatches: () => Promise<void>;

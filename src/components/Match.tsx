@@ -4,8 +4,13 @@ import arrowUp from "../assets/arrow_up.png";
 import Card from "./Card";
 import { useState } from "react";
 import Status from "./Status";
+import type { Match } from "../useMatchStore";
 
-export default function Match({ match }) {
+interface MatchProps {
+  match: Match;
+}
+
+export default function Match({ match }: MatchProps) {
   const [show, setShow] = useState(false);
 
   function openCard() {
